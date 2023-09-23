@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls, non_constant_identifier_names, unnecessary_import, prefer_const_constructors
 
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -43,6 +44,10 @@ class AppCubit extends Cubit<AppState> {
 
   final fireStore = FirebaseFirestore.instance;
   final fireStorage = FirebaseStorage.instance;
+
+   void hello() {
+    print("object");
+   }
 
   void getUser() {
     fireStore.collection("Users").doc(uId).get().then((value) {
@@ -133,6 +138,7 @@ class AppCubit extends Cubit<AppState> {
             comments[element.id]=tempClist;
         });
   }
+
 
   List<UserModel> chats=[];
 
